@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('slug');
-            $table->tinyInteger('status');
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
         });

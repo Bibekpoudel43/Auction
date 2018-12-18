@@ -1,4 +1,6 @@
-$('[data-toggle="tooltip"]').tooltip();
+    $(function() {
+
+        $('[data-toggle="tooltip"]').tooltip();
     $(".preloader").fadeOut();
     // ============================================================== 
     // Login and Recover Password 
@@ -12,3 +14,4 @@ $('[data-toggle="tooltip"]').tooltip();
         $("#recoverform").hide();
         $("#loginform").fadeIn();
     });
+    })

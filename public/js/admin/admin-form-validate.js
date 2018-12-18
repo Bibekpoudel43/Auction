@@ -42,7 +42,6 @@ $(function() {
         }
     });
 
-
     $("#Cpassword").keyup(function(){
         var current_pwd = $('#Cpassword').val();
 
@@ -65,6 +64,5 @@ $(function() {
     
         });
     });
-
     
 })

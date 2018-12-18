@@ -41,6 +41,10 @@ Route::prefix('admin')->group(function() {
     Route::get('/checkPassword', 'AdminController@checkPassword')->name('admin.checkPassword');
     Route::match(['get', 'post'], '/updatePassword', 'AdminController@updatePassword')->name('admin.updatePassword');
     Route::match(['get', 'post'], '/add-category', 'CategoryController@addCategory')->name('admin.addCategory');
+    Route::get('/view-categories', 'CategoryController@viewCategories')->name('admin.viewCategory');
+    Route::match(['get', 'post'], '/edit-category/{id}', 'CategoryController@editCategory');
+
+
 
     //password reset routes
     Route::post('/password/email', 'Auth\AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

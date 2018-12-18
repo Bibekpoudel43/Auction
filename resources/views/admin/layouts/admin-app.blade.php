@@ -5,7 +5,6 @@
     @include('admin.inc.topnav')
         @include('admin.inc.sidenav')
             <div class="page-wrapper">
-            @include('admin.inc.breadcrumb')
                 <div class="container-fluid">
                     @yield('content')
                 </div>
