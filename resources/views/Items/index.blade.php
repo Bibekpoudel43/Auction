@@ -1,9 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Home')
+<style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 40%;
+  }
+  </style>
 @section('content')
-<div class="row">
+
+<div class="row py-3">
 	@forelse($items as $item)
-	<div class="col-lg-3 col-sm-12 text-white">
+	<div class="col-md-3 col-sm-12">
 		<div class="card mt-3 bg-dark">
 			@if (Storage::disk('local')->has($item->image_name))
 			<img src="{{Storage::url($item->image_name)}}" alt="" class="card-img-top" style="width:100%; height:150px;">
@@ -16,7 +24,7 @@
 		</div>
 	  </div>
 	  @empty
-		<div class="col-6 mx-auto">
+		<div class="col-auto mx-auto">
 			<div class="alert alert-info" role="alert">
 			  <strong class="text-center">No data has been added yet</strong> 
 			  <p>
@@ -26,5 +34,5 @@
 			</div>
 		</div>
     @endforelse
-</div>
+	</div>
 @endsection
