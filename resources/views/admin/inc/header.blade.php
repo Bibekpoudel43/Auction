@@ -12,7 +12,21 @@
 
     <title>@yield('title')</title>
 
+    
+    <!-- Fonts -->
+    <link href="{{ asset('css/admin/style.min.css') }}" rel="stylesheet">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/multicheck.css') }}">
+    <link href="{{ asset('css/admin/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/quill.snow.css') }}">
+    <link href="{{ asset('css/admin/float-chart.css') }}" rel="stylesheet">
+
+
     <!-- Scripts -->
+    <script src="{{ asset('js/admin/admin-form-validate.js') }}"></script>
     <script src="{{ asset('js/admin/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{ asset('js/admin/popper.min.js') }}"></script>
@@ -43,32 +57,14 @@
     <script src="{{ asset('js/admin/chart-page-init.js') }}"></script>
     <script src="{{ asset('js/admin/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/admin/custom.js') }}"></script>
-    <script src="{{ asset('js/admin/admin-form-validate.js') }}"></script>
     <script src="{{ asset('js/admin/datatables.min.js') }}"></script>
     
     <script src="{{ asset('js/admin/jquery.inputmask.bundle.min.js') }}"></script>
     <script src="{{ asset('js/admin/mask.init.js') }}"></script>
     <script src="{{ asset('js/admin/select2.full.min.js') }}"></script>
     <script src="{{ asset('js/admin/select2.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery-asColor.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery-asGradient.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery-asColorPicker.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery.minicolors.min.js') }}"></script>
     <script src="{{ asset('js/admin/quill.min.js') }}"></script>
     <script src="{{ asset('js/admin/ckeditor.js') }}"></script>
 
-
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/multicheck.css') }}">
-    <link href="{{ asset('css/admin/dataTables.bootstrap4.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/select2.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/admin/quill.snow.css') }}">
-    <link href="{{ asset('css/admin/style.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin/float-chart.css') }}" rel="stylesheet">
 
 </head>

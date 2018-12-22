@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'address', 'phone_no',
+        'name', 'username', 'email', 'password', 'address', 'phone_no', 'status',
     ];
 
     /**
@@ -32,4 +32,14 @@ class User extends Authenticatable implements MustVerifyEmail
      public function items(){
         return $this->hasMany('App\Item');
     }
+
+    public function itemBid()
+	{
+		return $this->belongsToMany('App\Item', 'bids', 'item_id', 'user_id')->withPivot('id', 'amount', 'created_at' ,'updated_at');
+    }
+    
+    public function itemPurchase()
+	{
+		return $this->belongsToMany('App\Item', 'purchases', 'user_id', 'item_id')->withPivot('id', 'user_id', 'item_id', 'amount', 'created_at' ,'updated_at');
+	}
 }

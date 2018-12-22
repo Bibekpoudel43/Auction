@@ -7,8 +7,14 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Categories</span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                    <li class="sidebar-item"><a href="{{route('admin.addCategory')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Add Category </span></a></li>
-                                    <li class="sidebar-item"><a href="{{route('admin.viewCategory')}}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> View Categories</span></a></li>
+                                    <li class="sidebar-item"><a href="{{route('admin.addCategory')}}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Add Category </span></a></li>
+                                    <li class="sidebar-item"><a href="{{route('admin.viewCategory')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> View Categories</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-shopping-bag"></i></i><span class="hide-menu">Products </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="{{ route('admin.viewProducts')}}" class="sidebar-link"><i class="fas fa-eye"></i></i><span class="hide-menu"> View Products </span></a></li>
+                                <li class="sidebar-item"><a href="{{ route('admin.biddingList')}}" class="sidebar-link"><i class="fas fa-eye"></i></i><span class="hide-menu"> View Bidding List </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>

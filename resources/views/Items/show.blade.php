@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-md text-white">
+	<div class="col-md">
 		<div class="d-flex flex-row">
 	    	<div class="p-2">
 				<img src="{{Storage::url($item->image_name)}}" class="w-100 img-thumbnail rounded" alt="" style="width: 550px; height: 330px;">
@@ -23,10 +23,11 @@
 	    		<hr>
 	    		<div class="d-flex flex-row">
 	    			<div class="p-2">
-	    				<pre class="text-white">Initial Price:  {{$item->initial_price}}</pre>
-	    				<pre class="text-white">Current bid: null</pre>
-	    				<pre class="d-inline text-white">Time left: </pre>
-						<pre class="d-inline text-white" id="time_left" style="font-weight: bold; font-size: 14px;">
+	    				<pre>Auction Price:  {{$item->initial_price}}</pre>
+						<pre>Market Price:  {{$item->market_price}}</pre>
+	    				<pre>Current bid: null</pre>
+	    				<pre class="d-inline ">Time left: </pre>
+						<pre class="d-inline " id="time_left" style="font-weight: bold; font-size: 14px;">
 						</pre>
 	    			</div>
 	    			@if($item->user_id != Auth::id())

@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Item;
+use Illuminate\Support\Facades\Auth;
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+
 use Carbon\Carbon;
 
 class ItemsController extends Controller
@@ -18,7 +22,15 @@ class ItemsController extends Controller
     public function index()
     {
         $items = Item::all();
-        return view('Items.index', ['items' => $items]);
+
+        if(Auth::user())
+        {
+            return view('Items.index', ['items' => $items]);
+        }
+        elseif (Auth::guard('admin'))
+        {
+         return view('admin.products.view-product', ['items' => $items]);
+        }
     }
 
     /**
@@ -28,7 +40,9 @@ class ItemsController extends Controller
      */
     public function create()
     {
-        return view('Items.create');
+        
+        $categories= Category::pluck('name', 'id')->toArray();
+        return view('Items.create', compact('categories', $categories));
     }
 
     /**
@@ -45,8 +59,9 @@ class ItemsController extends Controller
          $item->name = $request->name;
          $item->description = $request->description;
          $item->initial_price = $request->initial_price;
+         $item->market_price = $request->market_price;
          $item->end_date_time = Carbon::parse($request->end_date_time);
-         $item->user_id = $request->user_id;
+         $item->category_id = $request->categories;
 
 
          $image_file = $request->file('image');

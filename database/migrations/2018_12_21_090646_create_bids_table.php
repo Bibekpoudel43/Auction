@@ -15,12 +15,11 @@ class CreateBidsTable extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->increments('id');
-            $table->double('bid_amount');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('item_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade')->onUpdate('cascade');   
-            $table->enum('status', ['pending', 'won'])->default('pending'); 
+            $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade')->onUpdate('cascade');
+            $table->double('amount');
             $table->timestamps();
         });
     }

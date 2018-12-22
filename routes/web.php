@@ -43,6 +43,11 @@ Route::prefix('admin')->group(function() {
     Route::match(['get', 'post'], '/add-category', 'CategoryController@addCategory')->name('admin.addCategory');
     Route::get('/view-categories', 'CategoryController@viewCategories')->name('admin.viewCategory');
     Route::match(['get', 'post'], '/edit-category/{id}', 'CategoryController@editCategory');
+    Route::match(['get', 'post'], '/delete-category/{id}', 'CategoryController@deleteCategory');
+    Route::get('/view-products', 'ItemsController@index')->name('admin.viewProducts');
+    Route::get('/show-bid-lists/{productId?}', 'BidController@showBidList')->name('admin.biddingList');
+    Route::get('/send-item-to-highest-bidder/{productId?}', 'PurchaseController@sendItemToHighestBidder');
+
 
 
 

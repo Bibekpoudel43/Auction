@@ -30,7 +30,7 @@ class CategoryController extends Controller
             $category->status = $data['status'];
             $category->save();
 
-            Session::flash('category_added', 'Category added Successfully');
+            Session::flash('category_added', 'Category added Successfully!');
             return redirect('/admin/view-categories');      
         }
     }
@@ -49,12 +49,25 @@ class CategoryController extends Controller
             return view('admin.categories.edit-category', compact('details'));
         }
         else if($request->isMethod('post'))
+        {      
+            $data = $request->all();
+            $slug = str_slug($data['name'], '-');
+    
+            Category::where(['id' => $id])->update(['name' => $data['name'], 'slug' => $slug, 'status' => $data['status']]);
+
+            Session::flash('category_updated', 'Category updated Successfully!');
+            return redirect ('/admin/view-categories');
+        }
+    }
+
+    public function deleteCategory(Request $request, $id = null)
+    {
+        if(!empty($id))
         {
-            return $id;
-                $request->validate([
-                'name' => 'required',
-                'status' => 'required',
-            ]);
+            Category::where(['id' => $id])->delete();
+
+            Session::flash('category-deleted', 'Category removed Successfully!');
+            return redirect ('/admin/view-categories');
         }
     }
 }

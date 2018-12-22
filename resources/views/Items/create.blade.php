@@ -10,7 +10,6 @@
 	<div class="col-md-6 mx-auto text-white">
 		<form action="/items" method="POST" enctype="multipart/form-data">
 			{{ csrf_field() }}
-            <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
     		<div class="form-group">
     			<label class="form-label" for="name">Name</label>
     			<input class="form-control" type="text" name="name" id="name"required> 
@@ -22,6 +21,10 @@
     		<div class="form-group">
     			<label class="form-label" for="initp">Initial Price</label>
     			<input type="text" name="initial_price" class="form-control" id="initp" required>
+			</div> 
+			<div class="form-group">
+    			<label class="form-label" for="mprice">Market Price</label>
+    			<input type="text" name="market_price" class="form-control" id="mprice" required>
     		</div> 
     		<div class="form-group">
     			<label class="form-label" for="edate">End DateTime</label>
@@ -30,7 +33,15 @@
     		<div class="form-group">
     			<label class="form-label" for="file">Upload Image</label> <br>
     			<input type="file" name="image" id="file" class="from-control" required>
-    		</div>
+			</div>
+			<div class="form-group">
+			<label class="form-label" for="cat">Select Category</label>
+				<select name="categories" id="categories" class="form-control" required>
+				@foreach($categories as $key => $value)
+   					 <option value="{{ $key }}">{{ $value }}</option>
+  				@endforeach
+				</select>
+			</div>
     		<div class="form-group">
     			<input type="submit" class="form-control-file btn btn-primary" name="submit">
     		</div>

@@ -1,9 +1,9 @@
 @extends('admin.layouts.admin-app')
-@section('title', 'View Category')
+@section('title', 'View Products')
 @section('content')
 <div class="row">
     <div class="col-md-10">
-    @if(Session::has('category_added'))
+    <!-- @if(Session::has('category_added'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <strong> {{ Session::get('category_added') }}</strong> 
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -26,13 +26,13 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-    @endif
+    @endif -->
     </div>
 </div>
 <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
         <div class="card">
-        <h4 class="card-title">Categories List</h4>
+        <h4 class="card-title p-4">Products List</h4>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="zero_config" class="table table-striped text-center table-bordered">
@@ -40,23 +40,37 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Slug</th>
-                            <th>Status</th>
+                            <th>Description</th>
+                            <th>Initial Price</th>
+                            <th>Market Price</th>
+                            <th>Auction End Date/Time</th>
+                            <th>Image</th>
+                            <th>Category</th>
+                            <th>Created At</th>
+                            <th>Updated At</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($categories as $category)
+                    @foreach ($items as $item)
                         <tr>
-                            <td>{{$category->id}}</td>
-                            <td>{{$category->name}}</td>
-                            <td>{{$category->slug}}</td>
-                            <td>{{$category->status}}</td>
+                            <td>{{$item->id}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->description}}</td>
+                            <td>{{$item->initial_price}}</td>
+                            <td>{{$item->market_price}}</td>
+                            <td>{{$item->end_date_time}}</td>
+                            <td>
+                                @if (Storage::disk('local')->has($item->image_name))
+                                <img src="{{Storage::url($item->image_name)}}" alt="" class="card-img-top" style="width:100%; height:100px;">
+                                @endif
+                            </td>
+                            <td>{{$item->category_id}}
+                            </td>
+                            <td>{{$item->created_at}}</td>
+                            <td>{{$item->updated_at}}</td>
                             <td class="text-center">
-                                 <a href="{{ url('/admin/edit-category/'.$category->id)}}" class="btn btn-primary">
-                                    <i class="fas fa-edit"></i>
-                                </a> 
-                                <a href="{{ url('/admin/delete-category/'.$category->id)}}" id="delCat" class="btn btn-danger">
+                                <a href="{{ url" id="delCat" class="btn btn-danger">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

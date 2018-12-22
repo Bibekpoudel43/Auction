@@ -17,11 +17,13 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->longText('description');
-            $table->integer('initial_price');
+            $table->double('initial_price', 8, 2);
+            $table->double('market_price', 8, 2)->nullable();
             $table->dateTime('end_date_time');
             $table->string('image_name');
-            $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            $table->boolean('isSold')->default(false);
             $table->timestamps();
         });
     }
